@@ -12,5 +12,13 @@ console.log("Age: "+person.age);
 console.log("Status: "+person.status);
 console.log("--------------------------------");
 
+// Class definition
+class Person {
+    constructor(name, age, status) {
+        this.name = name;
+        this.age = age;
+        this.status = status;
+    }
 
+}
 
