@@ -20,5 +20,11 @@ class Person {
         this.status = status;
     }
 
+    // Method to display person information in the console
+    displayInfo() {
+        console.log("Name: " + this.name);
+        console.log("Age: " + this.age);
+        console.log("Status: " + this.status);
+    }
 }
 
