@@ -29,12 +29,17 @@ class Person {
 
      // Method to display person information in the HTML
      displayInfoHTML() {
-        const personElement = document.getElementById('personOne');
+        const personElement = document.getElementById('Person1');
         personElement.innerHTML = `
             <strong>Name:</strong> ${this.name}<br>
             <strong>Age:</strong> ${this.age}<br>
-            <strong>Occupation:</strong> ${this.occupation}
+            <strong>Occupation:</strong> ${this.status}
         `;
     }
 }
+    // Creating an object (instance) of the Person class
+    const person1 = new Person('Xhinsade Riri', 20, 'Tired');
+
+    // Calling methods
+    personOne.displayInfo();    
 
