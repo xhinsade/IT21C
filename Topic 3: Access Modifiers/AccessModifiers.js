@@ -31,4 +31,11 @@ class Animal {
   get sound(){
     return this.#sound;
   }
+  //Method to Display Animal Info in the console 
+  DisplayAnimalInfo(){
+    
+    console.log(" Species: " + this.species);
+    console.log(" Type: " + this.type);
+    console.log("Sound: " + this.sound);
+  }
 }
