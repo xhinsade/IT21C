@@ -15,7 +15,7 @@
 
 <body>
     <h1>Topic 2 - Methods</h1>
-    <h1 id="personOne"></h1>
+    <h1 id="PersonInfo"></h1>
 
 <script>
 
@@ -38,7 +38,7 @@
         
      // Method to display person information in the HTML
      displayInfoHTML() {
-        const personElement = document.getElementById('Person1');
+        const personElement = document.getElementById('PersonInfo'); // Use matching ID
         personElement.innerHTML = `
             <strong>Name:</strong> ${this.name}<br>
             <strong>Age:</strong> ${this.age}<br>
@@ -49,11 +49,11 @@
 }
 
   // Creating an object (instance) of the Person class
-  const personOne = new Person('Cliff', 23, 'Instructor');
+  const PersonInfo = new Person('Xhinsade Riri', 20, 'Tired');
         
         // Calling methods
-        personOne.displayInfo();       
-        personOne.displayInfoHTML(); 
+        PersonInfo.displayInfo();       
+        PersonInfo.displayInfoHTML(); 
 
 
     </script>
