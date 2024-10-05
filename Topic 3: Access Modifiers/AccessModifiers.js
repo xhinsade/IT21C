@@ -15,6 +15,11 @@ class Animal {
     this.#sound = sound;
   }
   
+  /* 
+  Getters: It's a method use to access the value properties in a controlled way. 
+  Return: It's use to return the specify value of a function.
+  
+  */
   get species (){
     return this.#species;
   }
