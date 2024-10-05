@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+  <title> Topic 3: Access Modifier and Encapsulation</title>
+
+</head>
+<body>
+  
+  <h1> Topic 3: Access Modifiers and Encapsulation </h1>
+    <h1 id="Info"></h1>
+    
+    <script> 
+    
+    class Animal {
+      
+      
+      //Private Fields
+  #species;
+  #type;
+  #sound;
+  
+  constructor(species, type, sound){
+    this.#species = species;
+    this.#type = type;
+    this.#sound = sound;
+    }
+    
+    //Getters
+    get species (){
+    return this.#species;
+  }
+  
+  get type (){
+    return this.#type;
+  }
+  
+  get sound(){
+    return this.#sound;
+  }
+  // Method to Display Animal Info in the console 
+  DisplayAnimalInfo(){
+    console.log("Species: " + this.species);
+    console.log("Type: " + this.type);
+    console.log("Sound: " + this.sound);
+  }
+    // Method to Display Animal Info in HTML
+  DisplayAnimalInfo_Html(animals) {
+    const AnimalElement = document.getElementById('Info');
+    let htmlString = '';
+    for (const animal of animals) {
+      htmlString += `
+        <strong>Species:</strong> ${animal.species}<br>
+        <strong>Type:</strong> ${animal.type}<br>
+        <strong>Sound:</strong> ${animal.sound}<br><br>
+      `;
+    }
+    AnimalElement.innerHTML = htmlString;
+  }
+}
+
+// Creating instances of the Animal class
+const animalInfo1 = new Animal('Mammal', 'Cat', 'Meow');
+const animalInfo2 = new Animal('Vertebrate', 'Crocodile', 'grunt');
+
+// Call methods to display info in the console 
+animalInfo1.DisplayAnimalInfo();
+animalInfo2.DisplayAnimalInfo();
+
+// Create an array of both instances
+const animals = [animalInfo1, animalInfo2];
+
+// Call the method to display info for both instances
+animalInfo1.DisplayAnimalInfo_Html(animals);
+
+    </script>
+
+</body>
+
+</html>
