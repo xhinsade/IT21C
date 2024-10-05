@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic 1 - Objects and Classes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> Hello World, My World Is You.</h1>
+    <h1 id="person1-name"></h1>
+    <h1 id="person1-age"></h1>
+    <h1 id="person1-status"></h1>
+
+    
+    <script>
+        //Input
+         const person1 ={
+             name:"Xhinsade Riri",
+             age:20,
+             status:" Tired but Trying Hard"
+         }
+
+         //Process 
+
+         //Display the Person Attribute in the Console
+         console.log(" Name:" + person1.name);
+         console.log(" Age:" + person1.age);
+         console.log(" Name:" + person1.status);
+
+         //Display the Persons Attribute to HTML
+         document.getElementById("person1-name").innerHTML = " Name: " + person1.name;
+         document.getElementById("person1-age").innerHTML = " Age: " + person1.age;
+         document.getElementById("person1-status").innerHTML = " Status: " + person1.status;
+
+         //Output
+
+         /* Display the Person Attribute in the Console
+
+          Name:Xhinsade Riri
+          Age:20
+          Name: Tired but Trying Hard
+         
+          Display the Persons Attribute to HTML
+
+            Hello World, My World Is You.
+            Name: Xhinsade Riri
+            Age: 20
+            Status: Tired but Trying Hard
+         */
+        </script>
+</body>
+</html>
