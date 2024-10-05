@@ -15,4 +15,15 @@ class Animal {
     this.#sound = sound;
   }
   
+  get species (){
+    return this.#species;
+  }
+  
+  get type (){
+    return this.#type;
+  }
+  
+  get sound(){
+    return this.#sound;
+  }
 }
