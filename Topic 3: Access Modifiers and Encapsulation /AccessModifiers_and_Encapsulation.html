@@ -52,6 +52,16 @@
     console.log("Type: " + this.type);
     console.log("Sound: " + this.sound);
   }
+    // Method to Display Animal Info in HTML
+  DisplayAnimalInfo_Html(){
+    const AnimalElement = document.getElementById('Info');
+    AnimalElement.innerHTML = `
+      <strong>Species:</strong> ${this.species}<br>
+      <strong>Type:</strong> ${this.type}<br>
+      <strong>Sound:</strong> ${this.sound}
+    `;
+  }
+}
     
     </script>
 
