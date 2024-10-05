@@ -10,4 +10,16 @@ class person {
     this.#status = statue;
     
   }
+  
+  get name(){
+    return this.#name;
+  }
+  
+  get age(){
+    return this.#age;
+  }
+  
+  get status(){
+    return this.#status;
+  }
 }
