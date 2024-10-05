@@ -53,16 +53,34 @@
     console.log("Sound: " + this.sound);
   }
     // Method to Display Animal Info in HTML
-  DisplayAnimalInfo_Html(){
+  DisplayAnimalInfo_Html(animals) {
     const AnimalElement = document.getElementById('Info');
-    AnimalElement.innerHTML = `
-      <strong>Species:</strong> ${this.species}<br>
-      <strong>Type:</strong> ${this.type}<br>
-      <strong>Sound:</strong> ${this.sound}
-    `;
+    let htmlString = '';
+    for (const animal of animals) {
+      htmlString += `
+        <strong>Species:</strong> ${animal.species}<br>
+        <strong>Type:</strong> ${animal.type}<br>
+        <strong>Sound:</strong> ${animal.sound}<br><br>
+      `;
+    }
+    AnimalElement.innerHTML = htmlString;
   }
 }
-    
+
+// Creating instances of the Animal class
+const animalInfo1 = new Animal('Mammal', 'Cat', 'Meow');
+const animalInfo2 = new Animal('Vertebrate', 'Crocodile', 'grunt');
+
+// Call methods to display info in the console 
+animalInfo1.DisplayAnimalInfo();
+animalInfo2.DisplayAnimalInfo();
+
+// Create an array of both instances
+const animals = [animalInfo1, animalInfo2];
+
+// Call the method to display info for both instances
+animalInfo1.DisplayAnimalInfo_Html(animals);
+
     </script>
 
 </body>
