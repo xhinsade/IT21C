@@ -15,70 +15,98 @@
 
 <body>
     <h1>Topic 4 - Inheritance</h1>
-    <h1 id="PersonInfo"></h1>
+    <div id="PersonInfo"></div>
+
     <script>
-    class Person {
-  
-  #name;
-  #age;
-  #status;
-  
-  constructor(name, age, status) {  
-    this.#name = name;
-    this.#age = age;
-    this.#status = status;
-  }
-  
-  GETTERS
+      class Person {
+      
+        #name;
+        #age;
+        #status;
+        
+        constructor(name, age, status) {  
+          this.#name = name;
+          this.#age = age;
+          this.#status = status;
+        }
+        
+        // GETTERS
+        get name() {
+          return this.#name;
+        }
+        
+        get age() {
+          return this.#age;
+        }
+        
+        get status() {
+          return this.#status;
+        }
+        
+        // METHOD TO DISPLAY INFO in the console
+        displayInfo() {
+          console.log("Name: " + this.name);
+          console.log("Age: " + this.age);
+          console.log("Status: " + this.status);
+        }
+        
+        // METHOD TO DISPLAY INFO via HTML
+        DisplayInfo_Html() {
+          return `
+            <strong>Name:</strong> ${this.name}<br>
+            <strong>Age:</strong> ${this.age}<br>
+            <strong>Status:</strong> ${this.status}<br>
+          `;
+        }
+      }
 
-  get name() {
-    return this.#name;
-  }
-  
-  get age() {
-    return this.#age;
-  }
-  
-  get status() {
-    return this.#status;
-  }
-  
-    //METHODS TO DISPLAY INFO
-  displayInfo() {
-    console.log("Name: " + this.name);
-    console.log("Age: " + this.age);
-    console.log("Status: " + this.status);
-  }
-  
-  //METHODS TO DISPLAY INFO via HTML
-  DisplayInfo_Html() {
-    const personInfo = document.getElementById('PersonInfo');
-    personInfo.innerHTML = `
-      <strong>Name:</strong> ${this.name}<br>
-      <strong>Age:</strong> ${this.age}<br>
-      <strong>Status:</strong> ${this.status}
-    `;
-  }
-}
+      class Patient extends Person {
+        constructor(name, age, status, healthStatus) {
+          super(name, age, status); 
+          this.healthStatus = healthStatus;
+        }
+        
+        // Override METHOD to display additional health info in the console
+        displayInfo() {
+          super.displayInfo(); // Call the parent class's method
+          console.log("Health Status: " + this.healthStatus);
+        }
+        
+        // Override METHOD to display additional health info in HTML
+        DisplayInfo_Html() {
+          return super.DisplayInfo_Html() + `
+            <strong>Health Status:</strong> ${this.healthStatus}<br><br>
+          `;
+        }
+      }
 
-class Patient extends Person {
-  constructor(name, age, status, healthStatus) {
-    super(name, age, status); 
-    this.healthStatus = healthStatus;
-  }
-  
-  displayInfo() {
-    super.displayInfo();
-    console.log("Health Status: " + this.healthStatus);
-  }
-  
-  DisplayInfo_Html() {
-    const personInfo = document.getElementById('PersonInfo');
-    personInfo.innerHTML += `
-      <br> <strong>Health Status:</strong> ${this.healthStatus}
-    `;
-  }
-}
+      // Function to display all patients' info in HTML
+      function displayAllPatients(patients) {
+        const personInfoDiv = document.getElementById('PersonInfo');
+        let allInfo = '';
+
+        patients.forEach(patient => {
+          allInfo += patient.DisplayInfo_Html();
+        });
+
+        personInfoDiv.innerHTML = allInfo; 
+      }
+
+      // Create instances of Patient
+      const patient1 = new Patient('Xhinsade Riri', '20', 'Student', 'Healthy');
+      const patient2 = new Patient('Achie', '5', 'Student', 'Anemic');
+
+      // Array of patients
+      const patients = [patient1, patient2];
+
+      // Display all patients' information in HTML
+      displayAllPatients(patients);
+
+      // Display all patients' information in the console
+      patients.forEach(patient => patient.displayInfo());
+      
+    </script>
+
 </body>
 
 </html>
