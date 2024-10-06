@@ -38,5 +38,12 @@ class person {
     <strong>Status:</strong> ${this.status}
   `;
 }
-
-}
+ 
+ class patient extends person {
+   constructor(name, age, status, healthStatus) {
+     super(name, age, status);
+     this.healthStatus = healthStatus;
+   }
+ }
+ 
+ 
