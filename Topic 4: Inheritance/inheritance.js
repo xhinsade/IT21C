@@ -28,4 +28,15 @@ class person {
     console.log(" Age: " + this.age);
     console.log(" Status: " + this.status)
   }
+  
+  DisplayInfo_Html() {
+
+  const personInfo = document.getElementById('PersonInfo');
+  personInfo.innerHTML = `
+    <strong> Name:</strong> ${this.name}<br>
+    <strong>Age:</strong> ${this.age}<br>
+    <strong>Status:</strong> ${this.status}
+  `;
+}
+
 }
