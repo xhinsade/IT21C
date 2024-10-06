@@ -60,6 +60,25 @@
     `;
   }
 }
+
+class Patient extends Person {
+  constructor(name, age, status, healthStatus) {
+    super(name, age, status); 
+    this.healthStatus = healthStatus;
+  }
+  
+  displayInfo() {
+    super.displayInfo();
+    console.log("Health Status: " + this.healthStatus);
+  }
+  
+  DisplayInfo_Html() {
+    const personInfo = document.getElementById('PersonInfo');
+    personInfo.innerHTML += `
+      <br> <strong>Health Status:</strong> ${this.healthStatus}
+    `;
+  }
+}
 </body>
 
 </html>
