@@ -55,5 +55,6 @@ class person {
      personInfo.innerHTML += '<br> <strong>Major: </strong> $ {this.healthStatus}';
    }
  }
- 
- 
+
+const patient1 = new person('Xhinsade Riri',  '20',  ' Student' , 'Healthy');
+patient1.displayInfo();
