@@ -44,6 +44,16 @@ class person {
      super(name, age, status);
      this.healthStatus = healthStatus;
    }
+   
+   displayInfo(){
+     super.displayInfo();
+     console.log(" Health Status: " + this.healthStatus);
+   }
+   
+   DisplayInfo_Html(){
+     const personInfo  = document.getElementById('PersonInfo');
+     personInfo.innerHTML += '<br> <strong>Major: </strong> $ {this.healthStatus}';
+   }
  }
  
  
