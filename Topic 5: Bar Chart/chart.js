@@ -77,6 +77,7 @@ class BarChart extends ChartCreator {
         this.createBarChart();
     }
     
+        createBarChart() {
         new Chart(this.barCtx, {
             type: 'bar',
             data: {
@@ -95,5 +96,11 @@ class BarChart extends ChartCreator {
                 }
             }
         });
+    }
+}
+
+        
+        const lineChartCreator = new LineChart('data.json');
+        lineChartCreator.init();
     
   
