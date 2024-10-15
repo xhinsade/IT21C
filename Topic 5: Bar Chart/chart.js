@@ -38,4 +38,8 @@ class ChartCreator {
     
     }
     
+    createCharts() {
+        this.createAreaChart();
+    }
+    
 }
