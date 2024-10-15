@@ -58,3 +58,7 @@ class LineChart {
         });
     }
 }
+
+// Initialize the LineChart with the data from the JSON file
+const salesLineChart = new LineChart('salesData.json');
+salesLineChart.init();
