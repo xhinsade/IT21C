@@ -73,4 +73,8 @@ class BarChart extends ChartCreator {
         this.barCtx = document.getElementById('barChart');
     }
     
+    createCharts() {
+        this.createBarChart();
+    }
+    
 }
