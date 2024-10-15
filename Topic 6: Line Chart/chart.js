@@ -60,5 +60,5 @@ class LineChart {
 }
 
 // Initialize the LineChart with the data from the JSON file
-const salesLineChart = new LineChart('salesData.json');
+const salesLineChart = new LineChart('chart.json');
 salesLineChart.init();
