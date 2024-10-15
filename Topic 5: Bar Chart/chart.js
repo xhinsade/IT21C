@@ -42,4 +42,29 @@ class ChartCreator {
         this.createAreaChart();
     }
     
+    createAreaChart() {
+        new Chart(this.areaCtx, {
+            type: 'line',
+            data: {
+                labels: this.chartData.labels,
+                datasets: [{
+                    label: '# of Votes',
+                    data: this.chartData.data,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true,
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+}
+    
 }
