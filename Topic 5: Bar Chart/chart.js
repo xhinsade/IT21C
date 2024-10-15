@@ -1,17 +1,20 @@
-class ChartCreator {
+// Class to create and display a bar chart using Chart.js
+class BarChart {
     constructor(dataUrl) {
         this.dataUrl = dataUrl;
         this.chartData = null;
+        this.chartCtx = document.getElementById('salesBarChart');
     }
 
-    
+    // Initialize the chart by fetching the JSON data and creating the chart
     async init() {
         await this.fetchData();
         if (this.chartData) {
-            this.createCharts();
+            this.createChart();
         }
     }
-    
+
+    // Fetch the data from the JSON file
     async fetchData() {
         try {
             const response = await fetch(this.dataUrl);
@@ -23,68 +26,18 @@ class ChartCreator {
             console.error('There has been a problem with your fetch operation:', error);
         }
     }
-    
-    
-    createCharts() {
-        // This method will be overridden in subclasses
-        throw new Error('createCharts() must be implemented in subclasses');
-    }
-}
-    
-    class LineChart extends ChartCreator {
-    constructor(dataUrl) {
-        super(dataUrl);
-        this.areaCtx = document.getElementById('areaChart');
-    
-    }
-    
-    createCharts() {
-        this.createAreaChart();
-    }
-    
-    createAreaChart() {
-        new Chart(this.areaCtx, {
-            type: 'line',
-            data: {
-                labels: this.chartData.labels,
-                datasets: [{
-                    label: '# of Votes',
-                    data: this.chartData.data,
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    fill: true,
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    }
-}
 
-class BarChart extends ChartCreator {
-    constructor(dataUrl) {
-        super(dataUrl);
-        this.barCtx = document.getElementById('barChart');
-    }
-    
-    createCharts() {
-        this.createBarChart();
-    }
-    
-        createBarChart() {
-        new Chart(this.barCtx, {
+    // Create the bar chart with Chart.js
+    createChart() {
+        new Chart(this.chartCtx, {
             type: 'bar',
             data: {
-                labels: this.chartData.labels,
+                labels: this.chartData.labels,  // Use labels from JSON
                 datasets: [{
-                    label: '# of Votes',
-                    data: this.chartData.data,
+                    label: 'Sales ($)',
+                    data: this.chartData.data,  // Use sales data from JSON
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
                     borderWidth: 1
                 }]
             },
@@ -99,14 +52,6 @@ class BarChart extends ChartCreator {
     }
 }
 
-        
-        const lineChartCreator = new LineChart('data.json');
-        lineChartCreator.init();
-        
-        const barChartCreator = new BarChart('data.json');
-        barChartCreator.init();
-        
-        console.log(lineChartCreator.dataUrl);
-        console.log(barChartCreator.dataUrl);
-    
-  
+// Initialize the BarChart with the data from the JSON file
+const salesBarChart = new BarChart('chart.json');
+salesBarChart.init();
