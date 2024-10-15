@@ -1,1 +1,4 @@
-{}
+{
+  "labels": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+  "data": [12000, 15000, 11000, 17000, 20000, 24000, 22000, 18000, 16000, 23000, 21000, 25000]
+}
